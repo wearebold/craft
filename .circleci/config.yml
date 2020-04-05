@@ -16,7 +16,7 @@ jobs:
           command: echo $GCLOUD_SERVICE_KEY | docker login -u _json_key --password-stdin https://eu.gcr.io
       - run: 
           Name: Docker tag
-          command: docker tag craft-frontend gcr.io/917271558875/craft-frontend:tag1
+          command: docker tag craft-frontend eu.gcr.io/bold-container-registry/craft-frontend:tag1
       - run:
           Name: Push container
-          command: docker push gcr.io/917271558875/craft-frontend:tag1
+          command: docker push eu.gcr.io/bold-container-registry/craft-frontend:tag1
