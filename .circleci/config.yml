@@ -17,3 +17,6 @@ jobs:
       - run: 
           Name: Docker tag
           command: docker tag craft-frontend gcr.io/bold-container-registry/craft-frontend:tag1
+      - run:
+          Name: Push container
+          command: docker push gcr.io/bold-container-registry/craft-frontend:tag1
