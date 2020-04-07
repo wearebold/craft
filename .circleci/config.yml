@@ -23,6 +23,9 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - '4b:f7:5e:35:95:35:bb:8b:d2:89:61:0e:f9:76:86:74'
+      - run: 
+          Name: test
+          command: ssh-keyscan 159.65.82.170 >> ~/.ssh/known_hosts
       - run:
           Name: test
           command: ssh -t root@159.65.82.170 'touch /tmp/hello' 
