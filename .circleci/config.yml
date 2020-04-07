@@ -25,7 +25,7 @@ jobs:
             - '4b:f7:5e:35:95:35:bb:8b:d2:89:61:0e:f9:76:86:74'
       - run: 
           Name: test
-          command: apt update && apt install rsync -y
+          command: sudo apt update && sudo apt install rsync -y
       - run: 
           Name: test
           command: ssh-keyscan 159.65.82.170 >> ~/.ssh/known_hosts
