@@ -3,9 +3,7 @@ version: '3.5'
 services:
   # nginx - web server
   nginx:
-    build:
-      #context: .
-      dockerfile: ./docker-config/nginx/Dockerfile
+    build: ./docker-config/nginx
   #  env_file: &env
   #    - ./cms/.env
     links:
