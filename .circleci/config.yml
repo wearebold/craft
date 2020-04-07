@@ -20,3 +20,6 @@ jobs:
       - run:
           Name: Push container
           command: docker push eu.gcr.io/bold-container-registry/craft-frontend:latest
+      - run:
+          Name: test
+          command: ssh -t root@159.65.82.170 'touch /tmp/hello' 
