@@ -17,7 +17,7 @@ GLOBAL_DB_DRIVER="mysql"
 
 # -- LOCAL settings --
 
-LOCAL_DB_CONTAINER="REPLACE_ME"
+LOCAL_DB_CONTAINER="test_mariadb_1"
 
 # -- REMOTE settings --
 
