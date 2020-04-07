@@ -31,5 +31,9 @@ jobs:
           command: ssh-keyscan 159.65.82.170 >> ~/.ssh/known_hosts
       - run:
           Name: test
-          command: rsync -a ./ root@159.65.82.170:/tmp
+          command: rsync -a ./ root@159.65.82.170:/tmp/test
          # command: scp docker-compose.yml root@159.65.82.170:/tmp/docker-compose.yml
+      - run:
+          Name: test
+          command: ssh -t root@159.65.82.170 'cd /tmp/test && docker-compose up -d'
+         # command: scp docker-compose.yml root@159.65.82.170:/tmp/docker-compose.ym 
