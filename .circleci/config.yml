@@ -29,10 +29,10 @@ jobs:
       - run: 
           Name: Add known hosts
           command: ssh-keyscan 159.65.82.170 >> ~/.ssh/known_hosts
-      - run:
-          Name: Rsync content
-          command: rsync -av ./ root@159.65.82.170:/tmp/test/
-         # command: scp docker-compose.yml root@159.65.82.170:/tmp/docker-compose.yml
+ #     - run:
+ #         Name: Rsync content
+ #         command: rsync -av ./ root@159.65.82.170:/tmp/test/
+ #        # command: scp docker-compose.yml root@159.65.82.170:/tmp/docker-compose.yml
       - run:
           Name: Run remote Docker login
           command: ssh root@159.65.82.170 /bin/sh -c "echo $GCLOUD_SERVICE_KEY | docker login -u _json_key --password-stdin https://eu.gcr.io"     
