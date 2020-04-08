@@ -50,3 +50,5 @@ CMD if [ ! -f "./composer.lock" ]; then \
     composer craft-update \
     && \
     php-fpm
+
+RUN mchown -R www-data:www-data /var/www/project/cms
