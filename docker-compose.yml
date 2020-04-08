@@ -12,9 +12,7 @@ services:
       - "8000:80"
   # php - personal home page
   php:
-    build:
-      context: .
-      dockerfile: ./docker-config/php-dev-craft/Dockerfile
+    image: eu.gcr.io/bold-container-registry/craft-backend:latest
     depends_on:
       - "mariadb"
       - "redis"
@@ -25,12 +23,12 @@ services:
     links:
       - mariadb
       - redis
-    volumes:
-      - cpresources:/var/www/project/cms/web/cpresources
-      - storage:/var/www/project/cms/storage
-      - ./cms:/var/www/project/cms:cached
-      - ./cms/vendor:/var/www/project/cms/vendor:delegated
-      - ./cms/storage/logs:/var/www/project/cms/storage/logs:delegated
+    # volumes:
+    #   - cpresources:/var/www/project/cms/web/cpresources
+    #   - storage:/var/www/project/cms/storage
+    #   - ./cms:/var/www/project/cms:cached
+    #   - ./cms/vendor:/var/www/project/cms/vendor:delegated
+    #   - ./cms/storage/logs:/var/www/project/cms/storage/logs:delegated
   # mariadb - database
   mariadb:
     build:
