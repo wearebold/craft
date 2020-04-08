@@ -3,16 +3,13 @@ version: '3.5'
 services:
   # nginx - web server
   nginx:
-    build: ./docker-config/nginx
     env_file: &env
       - ./cms/.env
+    image: eu.gcr.io/bold-container-registry/craft-frontend:latest
     links:
       - php
     ports:
       - "8000:80"
-    volumes:
-      - cpresources:/var/www/project/cms/web/cpresources
-      - ./cms/web:/var/www/project/cms/web:cached
   # php - personal home page
   php:
     build:
