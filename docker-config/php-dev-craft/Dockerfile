@@ -51,4 +51,4 @@ CMD if [ ! -f "./composer.lock" ]; then \
     && \
     php-fpm
 
-RUN mchown -R www-data:www-data /var/www/project/cms
+RUN chown -R www-data:www-data /var/www/project/cms
