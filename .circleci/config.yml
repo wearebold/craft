@@ -19,7 +19,7 @@ jobs:
           command: docker push eu.gcr.io/bold-container-registry/craft-frontend:latest
       - run:
           name: Build Docker image
-          command: docker build -t eu.gcr.io/bold-container-registry/craft-backend:latest ./docker-config/php-dev-craft
+          command: docker build -t eu.gcr.io/bold-container-registry/craft-backend:latest -f docker-config/php-dev-craft/Dockerfile .
       - run:
           Name: Push container
           command: docker push eu.gcr.io/bold-container-registry/craft-backend:latest
