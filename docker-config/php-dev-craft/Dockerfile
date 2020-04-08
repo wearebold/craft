@@ -45,8 +45,8 @@ RUN if [ ! -f "./composer.lock" ]; then \
     && \
     chown -R www-data:www-data /var/www/project/cms/vendor \
     && \
-    chown -R www-data:www-data /var/www/project/cms/storage \
-    && \
-    composer craft-update
+    chown -R www-data:www-data /var/www/project/cms/storage
+ #   && \
+ #  composer craft-update
 
 CMD php-fpm
