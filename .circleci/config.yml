@@ -7,32 +7,32 @@ jobs:
       - image: circleci/buildpack-deps:stretch
     steps:
       - checkout
-      - setup_remote_docker
-      - run:
-          name: Build Docker image
-          command: docker build -t craft-frontend:latest ./docker-config/nginx
-      - run:
-          Name: Docker Login
-          command: echo $GCLOUD_SERVICE_KEY | docker login -u _json_key --password-stdin https://eu.gcr.io
-      - run: 
-          Name: Docker tag
-          command: docker tag craft-frontend eu.gcr.io/bold-container-registry/craft-frontend:latest
-      - run:
-          Name: Push container
-          command: docker push eu.gcr.io/bold-container-registry/craft-frontend:latest
-      - add_ssh_keys:
-          fingerprints:
-            - '4b:f7:5e:35:95:35:bb:8b:d2:89:61:0e:f9:76:86:74'
-      - run: 
-          Name: Install rsync
-          command: sudo apt update && sudo apt install rsync -y
-      - run: 
-          Name: Add known hosts
-          command: ssh-keyscan 159.65.82.170 >> ~/.ssh/known_hosts
-      - run:
-          Name: Rsync content
-          command: rsync -av ./ root@159.65.82.170:/tmp/test/
-         # command: scp docker-compose.yml root@159.65.82.170:/tmp/docker-compose.yml
+ #     - setup_remote_docker
+ #     - run:
+ #         name: Build Docker image
+ #         command: docker build -t craft-frontend:latest ./docker-config/nginx
+ #     - run:
+ #         Name: Docker Login
+ #         command: echo $GCLOUD_SERVICE_KEY | docker login -u _json_key --password-stdin https://eu.gcr.io
+ #     - run: 
+ #         Name: Docker tag
+ #         command: docker tag craft-frontend eu.gcr.io/bold-container-registry/craft-frontend:latest
+ #     - run:
+ #         Name: Push container
+ #         command: docker push eu.gcr.io/bold-container-registry/craft-frontend:latest
+ #     - add_ssh_keys:
+ #         fingerprints:
+ #           - '4b:f7:5e:35:95:35:bb:8b:d2:89:61:0e:f9:76:86:74'
+ #     - run: 
+ #         Name: Install rsync
+ #         command: sudo apt update && sudo apt install rsync -y
+ #     - run: 
+ #         Name: Add known hosts
+ #         command: ssh-keyscan 159.65.82.170 >> ~/.ssh/known_hosts
+ #     - run:
+ #         Name: Rsync content
+ #         command: rsync -av ./ root@159.65.82.170:/tmp/test/
+ #        # command: scp docker-compose.yml root@159.65.82.170:/tmp/docker-compose.yml
       - run:
           Name: Run remote Docker login
           command: ssh root@159.65.82.170 /bin/sh -c "echo $GCLOUD_SERVICE_KEY | docker login -u _json_key --password-stdin https://eu.gcr.io"     
